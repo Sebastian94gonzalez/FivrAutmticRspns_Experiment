@@ -11,6 +11,7 @@ import os
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
+
 # Load environment variables from .env file
 load_dotenv()
 

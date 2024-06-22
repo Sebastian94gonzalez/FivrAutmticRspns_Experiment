@@ -14,10 +14,19 @@ driver, actions, wait = snl.driver_setup()
 time.sleep(1)
 url = 'https://www.fiverr.com'
 driver.get(url)
-print(driver.find_element(By.CSS_SELECTOR,'#px-captcha'))
-# element = driver.find_element(By.CSS_SELECTOR,'#px-captcha')
-element = driver.find_element(By.XPATH,'/html/body/div/div/div[2]/div[2]/p')
-print(element.get_attribute('innerHTML'))
+element = driver.find_element(By.CSS_SELECTOR,'#px-captcha')
+
+# TODO: Iframe handling!
+# time.sleep(2)
+# Execute JavaScript to access the Shadow DOM
+shadow_host = driver.find_element(By.CSS_SELECTOR,'#px-captcha')#.getShadowRoot()
+test = driver.execute_script('return arguments[0].shadowRoot', shadow_host)
+# Locate the iframes and iterate through them
+# iframes = driver.find_elements(By.TAG_NAME, 'iframe')
+# print(f'THE LENGTH OF THE LIST IS: {len(iframes)}')
+# print(iframes)
+# element = driver.find_element(By.XPATH,'/html/body/div/div/div[2]/div[2]/p')
+# print(element.get_attribute('innerHTML'))
 actions.click_and_hold(element)
 actions.perform()
 time.sleep(1)
