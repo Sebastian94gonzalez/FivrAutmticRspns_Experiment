@@ -78,3 +78,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+env_vars.env
+downloaded_files/driver_fixing.lock
